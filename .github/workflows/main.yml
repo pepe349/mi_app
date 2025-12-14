@@ -7,18 +7,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Instalar Dependencias de Android
+      - name: Instalar Herramientas
         run: |
           sudo apt update
           sudo apt install -y git zip unzip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
           pip3 install --user --upgrade Cython==0.29.33 buildozer
 
-      - name: Compilar APK con Buildozer
+      - name: Compilar con Buildozer
         run: |
           export PATH=$PATH:$HOME/.local/bin
           buildozer android debug
 
-      - name: Entregar Archivo APK
+      - name: Subir APK
         uses: actions/upload-artifact@v4
         with:
           name: Mi_App_Terminada
