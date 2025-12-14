@@ -8,7 +8,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Buildozer Action
-        uses: Nicklas-S-S/buildozer-action@v1
+        uses: Nicklas-S-S/buildozer-action@v1.0.0
         with:
           command: buildozer android debug
           repository_root: .
@@ -16,5 +16,5 @@ jobs:
       - name: Subir APK
         uses: actions/upload-artifact@v4
         with:
-          name: APK_Terminada
+          name: Mi_App_Terminada
           path: bin/*.apk
