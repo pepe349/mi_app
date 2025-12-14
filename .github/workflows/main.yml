@@ -1,17 +1,20 @@
 name: Generar APK
 on: [push]
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Buildozer
-        uses: ArtemSerebrennikov/buildozer-action@v1
+      - uses: actions/checkout@v4
+
+      - name: Buildozer Action
+        uses: Niklas-S-S/buildozer-action@v1
         with:
           command: buildozer android debug
           repository_root: .
-      - name: Descargar APK
-        uses: actions/upload-artifact@v3
+
+      - name: Subir APK
+        uses: actions/upload-artifact@v4
         with:
           name: Mi_App_Personalizada
           path: bin/*.apk
